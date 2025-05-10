@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talantau — Стажировки для студентов</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/@alpinejs/intersect@3.x.x/dist/cdn.min.js"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1A2E35',
+            secondary: '#3E5C76',
+            accent: '#FBBF24',
+            highlight: '#F5F7FA',
+            contrast: '#FFFFFF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-white text-primary font-sans">
+<header class="bg-white shadow border-b sticky top-0 z-50">
+  <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+    <h1 class="text-2xl font-bold">Talantau</h1>
+    <nav class="hidden md:flex items-center space-x-6 text-sm">
+      <a href="#about" class="hover:text-secondary">Для студентов</a>
+      <a href="#employers" class="hover:text-secondary">Для компаний</a>
+      <a href="#" class="hover:text-secondary">Вход</a>
+      <a href="#" class="bg-accent px-4 py-2 rounded font-semibold text-primary hover:brightness-90 transition">Регистрация</a>
+    </nav>
+    <div class="md:hidden">
+      <button id="menu-toggle" class="text-primary focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobile-menu" class="md:hidden hidden bg-white border-t px-4 py-3 space-y-2 text-sm">
+    <a href="#about" class="block hover:text-blueAccent">Для студентов</a>
+    <a href="#employers" class="block hover:text-blueAccent">Для компаний</a>
+    <a href="#" class="block hover:text-blueAccent">Вход</a>
+    <a href="#" class="block bg-accent px-4 py-2 rounded font-semibold text-dark hover:brightness-90 transition">Регистрация</a>
+  </div>
+  <script>
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
+</header>
+
+<section class="py-20 border-b bg-gradient-to-r from-lightBlue to-white" x-data="{ visible: false }" x-intersect.once="visible = true">
+  <div x-show="visible" x-transition.opacity.duration.700ms class="max-w-5xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
+    <div>
+      <h2 class="text-4xl font-bold mb-4">Начни карьеру во время учёбы</h2>
+      <p class="mb-6 text-gray-700">Подключайся к стажировкам от ведущих компаний для студентов вузов.</p>
+      <button class="bg-primary text-contrast px-6 py-3 rounded-full font-semibold transition transform hover:scale-105 hover:-translate-y-0.5 duration-300">
+        Присоединиться к Talantau
+      </button>
+    </div>
+    <div class="relative">
+      <img src="https://cdn-icons-png.flaticon.com/512/3135/3135789.png" alt="Student" class="w-60 mx-auto transition duration-300 hover:scale-110">
+    </div>
+  </div>
+</section>
+
+<section class="bg-contrast py-20" id="about" x-data="{ visible: false }" x-intersect.once="visible = true">
+  <div x-show="visible" x-transition.opacity.duration.700ms class="max-w-6xl mx-auto px-4">
+    <h3 class="text-2xl font-bold text-center mb-12">Как это работает</h3>
+    <div class="grid md:grid-cols-3 gap-6 text-center">
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" class="h-12 mx-auto mb-4 transition duration-300 hover:scale-110" alt="Резюме">
+        <h4 class="font-semibold mb-2">Создайте резюме</h4>
+        <p class="text-sm">Соберите профессиональный профиль с помощью простого конструктора</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/337/337946.png" class="h-12 mx-auto mb-4 transition duration-300 hover:scale-110" alt="Транскрипт">
+        <h4 class="font-semibold mb-2">Загрузите транскрипт</h4>
+        <p class="text-sm">Покажите академические достижения и выделитесь</p>
+      </div>
+      <div class="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300">
+        <img src="https://cdn-icons-png.flaticon.com/512/1063/1063312.png" class="h-12 mx-auto mb-4 transition duration-300 hover:scale-110" alt="Отклик">
+        <h4 class="font-semibold mb-2">Откликайтесь на стажировки</h4>
+        <p class="text-sm">Просматривайте и подавайтесь на релевантные возможности</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-20 bg-white" x-data="{ visible: false }" x-intersect.once="visible = true">
+  <div x-show="visible" x-transition.opacity.duration.700ms class="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+    <div class="bg-highlight rounded-xl p-6 shadow-md">
+      <h4 class="font-semibold text-lg mb-2">Для студентов</h4>
+      <ul class="text-sm list-disc pl-5 space-y-1">
+        <li>Доступ к проверенным стажировкам</li>
+        <li>Опыт в реальных проектах</li>
+        <li>Менторство от профессионалов</li>
+      </ul>
+    </div>
+    <div class="bg-highlight rounded-xl p-6 shadow-md">
+      <h4 class="font-semibold text-lg mb-2">Для компаний</h4>
+      <ul class="text-sm list-disc pl-5 space-y-1">
+        <li>База талантливых студентов</li>
+        <li>Упрощённый процесс найма</li>
+        <li>Формирование кадрового резерва</li>
+      </ul>
+    </div>
+  </div>
+  <div class="text-center mt-12">
+    <button class="bg-accent text-dark px-8 py-3 rounded-full font-bold shadow hover:brightness-90 transition transform hover:scale-105 hover:-translate-y-0.5">
+      Начать сейчас
+    </button>
+  </div>
+</section>
+
+<footer class="bg-primary text-contrast py-12" x-data="{ visible: false }" x-intersect.once="visible = true">
+  <div x-show="visible" x-transition.opacity.duration.700ms class="max-w-6xl mx-auto px-4 grid md:grid-cols-4 gap-8 text-sm">
+    <div>
+      <h4 class="font-bold mb-2">Talantau</h4>
+      <p>Платформа возможностей для студентов</p>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">О компании</h4>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">О нас</a></li>
+        <li><a href="#" class="hover:underline">Контакты</a></li>
+        <li><a href="#" class="hover:underline">Политика конфиденциальности</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">Ресурсы</h4>
+      <ul class="space-y-1">
+        <li><a href="#" class="hover:underline">Блог</a></li>
+        <li><a href="#" class="hover:underline">Центр помощи</a></li>
+        <li><a href="#" class="hover:underline">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-2">Мы в соцсетях</h4>
+      <div class="flex space-x-4 items-center">
+        <a href="#" aria-label="Telegram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" alt="Telegram" class="w-6 h-6">
+        </a>
+        <a href="#" aria-label="LinkedIn">
+          <img src="https://cdn-icons-png.flaticon.com/512/145/145807.png" alt="LinkedIn" class="w-6 h-6">
+        </a>
+        <a href="#" aria-label="Instagram">
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" class="w-6 h-6">
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="text-center mt-8 text-xs text-gray-400">© 2025 Talantau. Все права защищены.</div>
+</footer>
+
+</body>
+</html>

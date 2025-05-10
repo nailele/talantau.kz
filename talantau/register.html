@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Регистрация — Talantau</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1A2E35',
+            secondary: '#3E5C76',
+            accent: '#FBBF24',
+            highlight: '#F5F7FA',
+            contrast: '#FFFFFF',
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-highlight text-primary font-sans min-h-screen flex items-center justify-center px-4">
+<div class="bg-white shadow-lg rounded-lg w-full max-w-md p-8" x-data="{ visible: false }" x-init="visible = true" x-show="visible" x-transition.opacity>
+    <h1 class="text-2xl font-bold mb-6 text-center">Создай аккаунт на Talantau</h1>
+    <form class="space-y-4" method="post" action="/register">
+      <input type="text" name="name" placeholder="Имя" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+      <input type="email" name="email" placeholder="Email" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+      <input type="password" name="password" placeholder="Пароль" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+      <input type="password" placeholder="Подтверждение пароля" class="w-full border border-gray-300 p-3 rounded focus:outline-none focus:ring-2 focus:ring-accent">
+      <button type="submit" class="w-full bg-accent text-primary font-bold py-3 rounded hover:brightness-90 transition">Зарегистрироваться</button>
+    </form>
+    <p class="text-sm text-center text-gray-500 mt-6">Уже есть аккаунт? <a href="login.html" class="text-secondary hover:underline">Войти</a></p>
+  </div>
+</body>
+</html>
