@@ -1,0 +1,12 @@
+services:
+  talantau:
+    build: .
+    container_name: talantau
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    ports:
+      - "8000:8000"
+    depends_on:
+      - postgres
