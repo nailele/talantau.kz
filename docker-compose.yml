@@ -8,5 +8,9 @@ services:
       - PYTHONUNBUFFERED=1
     ports:
       - "8000:8000"
-    depends_on:
-      - postgres
+    networks:
+      - talantau-net
+
+networks:
+  talantau-net:
+    external: true
